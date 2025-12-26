@@ -1,3 +1,2 @@
-// This file should be deleted.
-// Next.js uses next.config.js for configuration.
-export {};
+// This file is deprecated and should be deleted.
+// It is kept empty to prevent build conflicts.
