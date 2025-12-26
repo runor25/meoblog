@@ -1,15 +1,3 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
-}
-
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// Next.js handles the application entry via app/layout.tsx and app/page.tsx
+// This file is not part of the standard Next.js App Router build process.
