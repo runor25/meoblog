@@ -8,7 +8,7 @@ const MOCK_FILES = [
 title: "Smart Home Security for People Who Hate Setup (The 2025 Renter’s Guide)"
 date: "2025-12-25"
 excerpt: "You don't want a weekend project. You want security. Here is the no-drill, 15-minute setup guide."
-coverImage: "https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2070&auto=format&fit=crop"
+coverImage: "https://i.ibb.co/DfzSBTt9/smart-speaker.webp"
 category: "Guides"
 author: "Alex Cypher"
 ---
@@ -77,7 +77,7 @@ You may have read that a new standard called "Matter" fixes all smart home probl
 title: "Your Router is a Backdoor: 3 Settings to Change Now"
 date: "2025-11-10"
 excerpt: "Stop using the default password. Here is the 5-minute audit to lock down your digital front door."
-coverImage: "https://images.unsplash.com/photo-1544197150-b99a580bbcbf?q=80&w=2071&auto=format&fit=crop"
+coverImage: "https://i.ibb.co/ks8wMyqp/lan-cable.webp"
 category: "Network"
 author: "Sarah Firewall"
 ---
@@ -124,7 +124,7 @@ Your ISP-provided router is likely garbage. If you are paying $10/month to rent 
 title: "The Privacy Paranoia Checklist: Stop Your House From Spying"
 date: "2025-10-15"
 excerpt: "Cameras face outward, not inward. A guide to keeping your private life private while staying secure."
-coverImage: "https://images.unsplash.com/photo-1512428559087-560fa9604a05?q=80&w=2069&auto=format&fit=crop"
+coverImage: "https://i.ibb.co/j2K4L73/check-list.webp"
 category: "Privacy"
 author: "The Ghost"
 ---
