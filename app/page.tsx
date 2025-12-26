@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { getAllPosts } from '../lib/posts';
 import ArticleCard from '../components/ArticleCard';
 import { ArrowDown, CheckCircle2, Lock, ArrowRight, Shield } from 'lucide-react';
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   const posts = getAllPosts();
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col">
         {/* Hero Section */}
         <section className="relative pt-24 pb-32 md:pt-32 md:pb-40">
             {/* Subtle glow specifically for Hero center */}
@@ -42,10 +42,10 @@ const HomePage: React.FC = () => {
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 animate-fade-in-up"
                     style={{ animationDelay: '450ms' }}
                 >
-                    <Link to="/guides" className="flex items-center justify-center h-12 px-8 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95">
+                    <Link href="/guides" className="flex items-center justify-center h-12 px-8 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95">
                         Start Reading
                     </Link>
-                    <Link to="/guides" className="flex items-center justify-center h-12 px-8 rounded-full border border-slate-700 hover:border-slate-500 text-slate-300 font-medium hover:bg-slate-800/50 transition-all backdrop-blur-sm">
+                    <Link href="/guides" className="flex items-center justify-center h-12 px-8 rounded-full border border-slate-700 hover:border-slate-500 text-slate-300 font-medium hover:bg-slate-800/50 transition-all backdrop-blur-sm">
                         View Top Gear
                     </Link>
                 </div>
@@ -87,7 +87,7 @@ const HomePage: React.FC = () => {
                         <h2 className="text-3xl font-bold text-white mb-2 tracking-tight font-display">Latest Guides</h2>
                         <p className="text-slate-400 font-serif">Fresh protocols for the modern home.</p>
                     </div>
-                    <Link to="/guides" className="hidden md:flex items-center gap-2 text-emerald-400 font-medium hover:text-emerald-300 transition-colors">
+                    <Link href="/guides" className="hidden md:flex items-center gap-2 text-emerald-400 font-medium hover:text-emerald-300 transition-colors">
                         View all <ArrowRight className="h-4 w-4" />
                     </Link>
                 </div>
@@ -99,7 +99,7 @@ const HomePage: React.FC = () => {
                 </div>
                 
                  <div className="mt-12 text-center md:hidden">
-                    <Link to="/guides" className="inline-flex items-center gap-2 text-emerald-400 font-medium hover:text-emerald-300">
+                    <Link href="/guides" className="inline-flex items-center gap-2 text-emerald-400 font-medium hover:text-emerald-300">
                         View all guides <ArrowRight className="h-4 w-4" />
                     </Link>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useParams } from 'react-router-dom';
 import { getPostBySlug } from '../../../lib/posts';
 import MarkdownRenderer from '../../../components/MarkdownRenderer';
 import { ChevronLeft, Share2, User, Clock, Calendar } from 'lucide-react';
@@ -29,7 +30,8 @@ const calculateReadTime = (content: string): string => {
     return `${time} min read`;
 };
 
-const BlogPostPage: React.FC = () => {
+// Converted to Client Component for react-router-dom
+export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const post = getPostBySlug(slug || '');
 
@@ -38,7 +40,7 @@ const BlogPostPage: React.FC = () => {
         <div className="flex h-[50vh] flex-col items-center justify-center text-center opacity-0 animate-fade-in">
             <h1 className="text-4xl font-bold text-white mb-4">404</h1>
             <p className="text-slate-400 mb-8">Article not found.</p>
-            <Link to="/" className="text-emerald-400 hover:underline">Return Home</Link>
+            <Link href="/" className="text-emerald-400 hover:underline">Return Home</Link>
         </div>
     );
   }
@@ -60,7 +62,7 @@ const BlogPostPage: React.FC = () => {
             />
             <div className="absolute bottom-0 left-0 w-full z-20 pb-12 pt-24 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
                 <div className="container mx-auto px-4 md:px-6">
-                    <Link to="/guides" className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 mb-6 transition-colors font-medium backdrop-blur-sm bg-slate-900/50 px-3 py-1.5 rounded-full border border-emerald-500/20 opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                    <Link href="/guides" className="inline-flex items-center gap-2 text-sm text-emerald-400 hover:text-emerald-300 mb-6 transition-colors font-medium backdrop-blur-sm bg-slate-900/50 px-3 py-1.5 rounded-full border border-emerald-500/20 opacity-0 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                         <ChevronLeft className="h-4 w-4" /> Back to Guides
                     </Link>
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight max-w-4xl tracking-tight drop-shadow-lg font-display opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
@@ -154,6 +156,4 @@ const BlogPostPage: React.FC = () => {
         </div>
     </div>
   );
-};
-
-export default BlogPostPage;
+}

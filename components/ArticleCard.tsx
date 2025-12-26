@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 import { Post } from '../types';
 
@@ -39,7 +39,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ post, style }) => {
         </div>
 
         <h3 className="mb-2 text-xl font-bold text-white group-hover:text-emerald-400 transition-colors font-display tracking-tight">
-          <Link to={`/blog/${post.slug}`} className="focus:outline-none">
+          <Link href={`/blog/${post.slug}`} className="focus:outline-none">
             <span className="absolute inset-0" />
             {post.metadata.title}
           </Link>
