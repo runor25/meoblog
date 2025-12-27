@@ -141,12 +141,13 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                                 <ul className="space-y-3 relative border-l border-slate-700/50 ml-2">
                                     {toc.length > 0 ? toc.map((item, index) => (
                                         <li key={index} style={{ paddingLeft: `${(item.level - 1) * 16}px` }} className="relative group">
-                                            {/* Changed from <a> to <span> to avoid using onClick in a Server Component */}
-                                            <span 
-                                                className={`text-sm block transition-all py-1 font-serif cursor-default ${index === 0 ? 'text-emerald-400 font-bold' : 'text-slate-400 group-hover:text-emerald-400 group-hover:translate-x-1'}`}
+                                            <a 
+                                                href="#" 
+                                                className={`text-sm block transition-all py-1 font-serif ${index === 0 ? 'text-emerald-400 font-bold' : 'text-slate-400 group-hover:text-emerald-400 group-hover:translate-x-1'}`}
+                                                onClick={(e) => e.preventDefault()} 
                                             >
                                                 {item.text}
-                                            </span>
+                                            </a>
                                         </li>
                                     )) : (
                                         <li className="text-slate-500 text-sm pl-4">No sections found.</li>
