@@ -42,7 +42,7 @@ export async function generateStaticParams() {
 type Params = Promise<{ slug: string }> | { slug: string };
 
 export default async function BlogPostPage({ params }: { params: Params }) {
-  // CRITICAL FIX: Await params before accessing properties to handle Next.js 15+ async params
+  // Await params to ensure compatibility with Next.js 15+ (even if on 14)
   const resolvedParams = await params;
   const { slug } = resolvedParams;
   
@@ -141,13 +141,12 @@ export default async function BlogPostPage({ params }: { params: Params }) {
                                 <ul className="space-y-3 relative border-l border-slate-700/50 ml-2">
                                     {toc.length > 0 ? toc.map((item, index) => (
                                         <li key={index} style={{ paddingLeft: `${(item.level - 1) * 16}px` }} className="relative group">
-                                            <a 
-                                                href="#" 
-                                                className={`text-sm block transition-all py-1 font-serif ${index === 0 ? 'text-emerald-400 font-bold' : 'text-slate-400 group-hover:text-emerald-400 group-hover:translate-x-1'}`}
-                                                onClick={(e) => e.preventDefault()} 
+                                            {/* FIXED: Changed <a> to <span> and removed onClick to resolve Server Component error */}
+                                            <span 
+                                                className={`text-sm block transition-all py-1 font-serif cursor-default ${index === 0 ? 'text-emerald-400 font-bold' : 'text-slate-400 group-hover:text-emerald-400 group-hover:translate-x-1'}`}
                                             >
                                                 {item.text}
-                                            </a>
+                                            </span>
                                         </li>
                                     )) : (
                                         <li className="text-slate-500 text-sm pl-4">No sections found.</li>
