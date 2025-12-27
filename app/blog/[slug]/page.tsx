@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getPostBySlug } from '../../../lib/posts';
 import MarkdownRenderer from '../../../components/MarkdownRenderer';
 import { ChevronLeft, Share2, User, Clock, Calendar } from 'lucide-react';
@@ -53,11 +54,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <div className="relative h-[60vh] w-full overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-900/30 z-10" />
             <div className="absolute inset-0 bg-emerald-900/20 mix-blend-overlay z-10" />
-            <img 
+            <Image 
                 src={post.metadata.coverImage} 
                 alt={post.metadata.title}
-                className="h-full w-full object-cover animate-fade-in scale-105"
+                fill
+                priority
+                className="object-cover animate-fade-in scale-105"
                 style={{ animationDuration: '1.5s' }}
+                sizes="100vw"
             />
             <div className="absolute bottom-0 left-0 w-full z-20 pb-12 pt-24 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent">
                 <div className="container mx-auto px-4 md:px-6">

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
 import { Post } from '../types';
 
@@ -19,10 +20,12 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ post, style }) => {
 
       <div className="aspect-[16/9] w-full overflow-hidden bg-slate-800 relative">
         <div className="absolute inset-0 bg-emerald-900/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <img 
+        <Image 
           src={post.metadata.coverImage} 
           alt={post.metadata.title}
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          fill
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
       
