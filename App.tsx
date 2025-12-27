@@ -1,1 +1,1 @@
-// This file is deprecated and should be deleted.
+// This file should be deleted.
