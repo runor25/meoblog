@@ -1,2 +1,1 @@
-// This file is deprecated and should be deleted.
-// It is kept empty to prevent build conflicts.
+// This file should be deleted to allow Vercel to correctly detect Next.js framework.

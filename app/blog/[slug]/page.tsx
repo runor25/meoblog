@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getPostBySlug } from '../../../lib/posts';
+import { getPostBySlug, getAllPosts } from '../../../lib/posts';
 import MarkdownRenderer from '../../../components/MarkdownRenderer';
 import { ChevronLeft, Share2, User, Clock, Calendar } from 'lucide-react';
 import { TocItem } from '../../../types';
@@ -30,11 +30,19 @@ const calculateReadTime = (content: string): string => {
     return `${time} min read`;
 };
 
+// Generate static params for all posts at build time
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 // Define Params type to be compatible with Next.js 15+ (Promise) or 14 (Object)
 type Params = Promise<{ slug: string }> | { slug: string };
 
 export default async function BlogPostPage({ params }: { params: Params }) {
-  // Await params to handle both Next.js 14 and 15
+  // CRITICAL FIX: Await params before accessing properties to handle Next.js 15+ async params
   const resolvedParams = await params;
   const { slug } = resolvedParams;
   
