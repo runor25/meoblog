@@ -30,9 +30,14 @@ const calculateReadTime = (content: string): string => {
     return `${time} min read`;
 };
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  // In Next.js App Router, params is passed as a prop
-  const { slug } = params;
+// Define Params type to be compatible with Next.js 15+ (Promise) or 14 (Object)
+type Params = Promise<{ slug: string }> | { slug: string };
+
+export default async function BlogPostPage({ params }: { params: Params }) {
+  // Await params to handle both Next.js 14 and 15
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+  
   const post = getPostBySlug(slug);
 
   if (!post) {
